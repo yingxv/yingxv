@@ -1,5 +1,13 @@
 import { defineConfig } from 'umi';
 
+function userCenterHost() {
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      return '//furan.xyz/user-center';
+    default:
+      return '//localhost:8000';
+  }
+}
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
@@ -11,7 +19,7 @@ export default defineConfig({
       apps: [
         {
           name: 'user-center', // 唯一 id
-          entry: '//localhost:8000', // html entry
+          entry: userCenterHost(), // html entry
         },
       ],
     },
@@ -21,7 +29,6 @@ export default defineConfig({
       path: '/',
       component: '@/layouts/',
       routes: [
-        { path: '/', component: '@/pages/index' },
         {
           path: '/user-center/',
           microApp: 'user-center',
