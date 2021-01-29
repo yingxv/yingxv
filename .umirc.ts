@@ -43,7 +43,7 @@ export default defineConfig({
       path: '/',
       component: '@/layouts/',
       routes: [
-        // { path: '/', redirect: '/user-center/' },
+        { path: '/', redirect: '/user-center/' },
         {
           path: '/user-center/',
           microApp: 'user-center',
