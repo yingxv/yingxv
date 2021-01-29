@@ -3,18 +3,18 @@ import { defineConfig } from 'umi';
 function userCenterHost() {
   switch (process.env.NODE_ENV) {
     case 'production':
-      return '//furan.xyz/user-center';
+      return 'https://furan.xyz/user-center';
     default:
-      return '//localhost:8010';
+      return 'http://localhost:8010';
   }
 }
 
 function flashCardHost() {
   switch (process.env.NODE_ENV) {
     case 'production':
-      return '//furan.xyz/flash-card';
+      return 'https://furan.xyz/flash-card';
     default:
-      return '//localhost:8020';
+      return 'http://localhost:8020';
   }
 }
 
