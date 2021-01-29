@@ -5,9 +5,19 @@ function userCenterHost() {
     case 'production':
       return '//furan.xyz/user-center';
     default:
-      return '//localhost:8000';
+      return '//localhost:8010';
   }
 }
+
+function flashCardHost() {
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      return '//furan.xyz/flash-card';
+    default:
+      return '//localhost:8020';
+  }
+}
+
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
@@ -21,6 +31,10 @@ export default defineConfig({
           name: 'user-center', // 唯一 id
           entry: userCenterHost(), // html entry
         },
+        {
+          name: 'flash-card', // 唯一 id
+          entry: flashCardHost(), // html entry
+        },
       ],
     },
   },
@@ -29,9 +43,17 @@ export default defineConfig({
       path: '/',
       component: '@/layouts/',
       routes: [
+        // { path: '/', redirect: '/user-center/' },
         {
           path: '/user-center/',
           microApp: 'user-center',
+          microAppProps: {
+            className: 'root-slave',
+          },
+        },
+        {
+          path: '/flash-card/',
+          microApp: 'flash-card',
           microAppProps: {
             className: 'root-slave',
           },
