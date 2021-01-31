@@ -58,6 +58,7 @@ export default defineConfig({
             className: 'root-slave',
           },
         },
+        { redirect: '/user-center/' },
       ],
     },
   ],

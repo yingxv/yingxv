@@ -25,7 +25,7 @@ const Logo = styled.div`
   justify-content: center;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 0 4px 4px 0;
-  top: 12px;
+  top: 8px;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   img {
