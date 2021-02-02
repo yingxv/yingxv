@@ -19,6 +19,7 @@ function flashCardHost() {
 }
 
 export default defineConfig({
+  title: '盈虚',
   nodeModulesTransform: {
     type: 'none',
   },
