@@ -3,7 +3,7 @@ import { defineConfig } from 'umi';
 function userCenterHost() {
   switch (process.env.NODE_ENV) {
     case 'production':
-      return 'https://furan.xyz/user-center';
+      return 'https://micro.furan.xyz/user-center';
     default:
       return 'http://localhost:8010';
   }
@@ -12,7 +12,7 @@ function userCenterHost() {
 function flashCardHost() {
   switch (process.env.NODE_ENV) {
     case 'production':
-      return 'https://furan.xyz/flash-card';
+      return 'https://micro.furan.xyz/flashcard';
     default:
       return 'http://localhost:8020';
   }
@@ -33,7 +33,7 @@ export default defineConfig({
           entry: userCenterHost(), // html entry
         },
         {
-          name: 'flash-card', // 唯一 id
+          name: 'flashcard', // 唯一 id
           entry: flashCardHost(), // html entry
         },
       ],
@@ -53,8 +53,8 @@ export default defineConfig({
           },
         },
         {
-          path: '/flash-card/',
-          microApp: 'flash-card',
+          path: '/flashcard/',
+          microApp: 'flashcard',
           microAppProps: {
             className: 'root-slave',
           },

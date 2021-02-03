@@ -72,7 +72,7 @@ export default (props: PropsWithChildren<any>) => {
             <Menu.Item key="time-mgt" icon={<ClockCircleOutlined />}>
               时间管理
             </Menu.Item>
-            <Menu.Item key="flash-card" icon={<ReadOutlined />}>
+            <Menu.Item key="flashcard" icon={<ReadOutlined />}>
               单词卡
             </Menu.Item>
           </Menu>
