@@ -3,7 +3,7 @@ import { defineConfig } from 'umi';
 function userCenterHost() {
   switch (process.env.NODE_ENV) {
     case 'production':
-      return 'https://micro.furan.xyz/user-center';
+      return 'https://micro.furan.xyz/user-center/';
     default:
       return 'http://localhost:8010';
   }
@@ -12,7 +12,7 @@ function userCenterHost() {
 function flashCardHost() {
   switch (process.env.NODE_ENV) {
     case 'production':
-      return 'https://micro.furan.xyz/flashcard';
+      return 'https://micro.furan.xyz/flashcard/';
     default:
       return 'http://localhost:8020';
   }

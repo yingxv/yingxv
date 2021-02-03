@@ -45,7 +45,7 @@ export default (props: PropsWithChildren<any>) => {
   }
 
   function onMenuChange({ key }: SelectInfo) {
-    history.push(`/${key}`);
+    history.push(`/${key}/`);
   }
 
   return (
