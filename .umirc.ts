@@ -26,6 +26,7 @@ export default defineConfig({
   favicon: '/favicon.ico',
   qiankun: {
     master: {
+      sandbox: false,
       // 注册子应用信息
       apps: [
         {
