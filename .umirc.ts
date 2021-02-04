@@ -64,4 +64,12 @@ export default defineConfig({
     },
   ],
   hash: true,
+  extraBabelPlugins: [
+    [
+      'babel-plugin-styled-components',
+      {
+        namespace: 'yingxv',
+      },
+    ],
+  ],
 });
