@@ -27,6 +27,7 @@ const Logo = styled.div`
   border-radius: 0 4px 4px 0;
   top: 8px;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 1;
   cursor: pointer;
   img {
     height: 100%;
@@ -46,6 +47,7 @@ export default (props: PropsWithChildren<any>) => {
 
   function onMenuChange({ key }: SelectInfo) {
     history.push(`/${key}/`);
+    setvisible(false);
   }
 
   return (

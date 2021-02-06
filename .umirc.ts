@@ -63,21 +63,27 @@ export default defineConfig({
           path: '/user-center/',
           microApp: 'user-center',
           microAppProps: {
+            wrapperClassName: 'load-wrap',
             className: 'root-slave',
+            autoSetLoading: true,
           },
         },
         {
           path: '/flashcard/',
           microApp: 'flashcard',
           microAppProps: {
+            wrapperClassName: 'load-wrap',
             className: 'root-slave',
+            autoSetLoading: true,
           },
         },
         {
           path: '/time-mgt/',
           microApp: 'time-mgt',
           microAppProps: {
+            wrapperClassName: 'load-wrap',
             className: 'root-slave',
+            autoSetLoading: true,
           },
         },
         { redirect: '/user-center/' },
