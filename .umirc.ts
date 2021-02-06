@@ -9,12 +9,21 @@ function userCenterHost() {
   }
 }
 
-function flashCardHost() {
+function flashcardHost() {
   switch (process.env.NODE_ENV) {
     case 'production':
       return 'https://micro.furan.xyz/flashcard/';
     default:
       return 'http://localhost:8020';
+  }
+}
+
+function timeMgtHost() {
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      return 'https://micro.furan.xyz/time-mgt/';
+    default:
+      return 'http://localhost:8030';
   }
 }
 
@@ -35,7 +44,11 @@ export default defineConfig({
         },
         {
           name: 'flashcard', // 唯一 id
-          entry: flashCardHost(), // html entry
+          entry: flashcardHost(), // html entry
+        },
+        {
+          name: 'time-mgt', // 唯一 id
+          entry: timeMgtHost(), // html entry
         },
       ],
     },
@@ -56,6 +69,13 @@ export default defineConfig({
         {
           path: '/flashcard/',
           microApp: 'flashcard',
+          microAppProps: {
+            className: 'root-slave',
+          },
+        },
+        {
+          path: '/time-mgt/',
+          microApp: 'time-mgt',
           microAppProps: {
             className: 'root-slave',
           },
