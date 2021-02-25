@@ -33,6 +33,12 @@ export default defineConfig({
     type: 'none',
   },
   favicon: '/favicon.ico',
+  links: [
+    {
+      rel: 'manifest',
+      href: '/manifest.webmanifest',
+    },
+  ],
   qiankun: {
     master: {
       sandbox: false,
