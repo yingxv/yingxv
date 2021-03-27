@@ -27,6 +27,15 @@ function timeMgtHost() {
   }
 }
 
+function toDoListHost() {
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      return 'https://micro.furan.xyz/to-do-list/';
+    default:
+      return 'http://localhost:8040';
+  }
+}
+
 export default defineConfig({
   title: '盈虚',
   nodeModulesTransform: {
@@ -55,6 +64,10 @@ export default defineConfig({
         {
           name: 'time-mgt', // 唯一 id
           entry: timeMgtHost(), // html entry
+        },
+        {
+          name: 'to-do-list', // 唯一 id
+          entry: toDoListHost(), // html entry
         },
       ],
     },
@@ -86,6 +99,15 @@ export default defineConfig({
         {
           path: '/time-mgt/',
           microApp: 'time-mgt',
+          microAppProps: {
+            wrapperClassName: 'load-wrap',
+            className: 'root-slave',
+            autoSetLoading: true,
+          },
+        },
+        {
+          path: '/to-do-list/',
+          microApp: 'to-do-list',
           microAppProps: {
             wrapperClassName: 'load-wrap',
             className: 'root-slave',
