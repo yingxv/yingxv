@@ -77,6 +77,9 @@ export default (props: PropsWithChildren<any>) => {
             <Menu.Item key="flashcard" icon={<ReadOutlined />}>
               单词卡
             </Menu.Item>
+            <Menu.Item key="to-do-list" icon={<ReadOutlined />}>
+              待办清单
+            </Menu.Item>
           </Menu>
         </Drawer>
 
