@@ -23,10 +23,7 @@ self.onnotificationclick = function (event) {
         type: 'window',
       })
       .then(function (clientList) {
-        for (var i = 0; i < clientList.length; i++) {
-          var client = clientList[i];
-          return client.focus();
-        }
+        clientList?.[0]?.focus?.();
       }),
   );
 };
