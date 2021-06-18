@@ -127,4 +127,16 @@ export default defineConfig({
       },
     ],
   ],
+  metas: [
+    { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    {
+      name: 'apple-mobile-web-app-status-bar-style',
+      content: 'black-translucent',
+    },
+    { name: 'browsermode', content: 'application' },
+    { name: 'full-screen', content: 'yes' },
+    { name: 'x5-fullscreen', content: 'true' },
+    { name: 'x5-page-mode', content: 'app' },
+    { name: '360-fullscreen', content: 'true' },
+  ],
 });
