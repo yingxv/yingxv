@@ -83,7 +83,7 @@ export default (props: PropsWithChildren<any>) => {
           </Menu>
         </Drawer>
 
-        <div style={{ height: 'calc(100% + 270px)' }}>{props.children}</div>
+        {props.children}
       </ConfigProvider>
     </QueryClientProvider>
   );
