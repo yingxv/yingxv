@@ -18,7 +18,7 @@ import zhCN from 'antd/es/locale/zh_CN';
 const queyClient = new QueryClient();
 
 const Logo = styled.div`
-  position: absolute;
+  position: fixed;
   height: 48px;
   padding: 12px;
   display: flex;
