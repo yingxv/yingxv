@@ -12,27 +12,35 @@ export default defineConfig({
       href: '/manifest.webmanifest',
     },
   ],
+  helmet: false,
   dva: false,
+  model: false,
+  initialState: false,
+  layout: false,
+  locale: false,
+  preact: false,
+  request: false,
+  sass: false,
   qiankun: {
     master: {
       // 注册子应用信息
       apps: [
         {
           name: 'user-center', // 唯一 id
-          entry: 'user-center/micro', // html entry
+          entry: 'http://localhost:8001', // html entry
         },
-        {
-          name: 'flashcard', // 唯一 id
-          entry: 'flashcard/micro', // html entry
-        },
-        {
-          name: 'time-mgt', // 唯一 id
-          entry: 'time-mgt/micro', // html entry
-        },
-        {
-          name: 'todo-list', // 唯一 id
-          entry: 'todo-list/micro', // html entry
-        },
+        // {
+        //   name: 'flashcard', // 唯一 id
+        //   entry: 'flashcard/micro', // html entry
+        // },
+        // {
+        //   name: 'time-mgt', // 唯一 id
+        //   entry: 'time-mgt/micro', // html entry
+        // },
+        // {
+        //   name: 'todo-list', // 唯一 id
+        //   entry: 'todo-list/micro', // html entry
+        // },
       ],
     },
   },
@@ -51,33 +59,33 @@ export default defineConfig({
             autoSetLoading: true,
           },
         },
-        {
-          path: '/flashcard/',
-          microApp: 'flashcard',
-          microAppProps: {
-            wrapperClassName: 'load-wrap',
-            className: 'root-slave',
-            autoSetLoading: true,
-          },
-        },
-        {
-          path: '/time-mgt/',
-          microApp: 'time-mgt',
-          microAppProps: {
-            wrapperClassName: 'load-wrap',
-            className: 'root-slave',
-            autoSetLoading: true,
-          },
-        },
-        {
-          path: '/todo-list/',
-          microApp: 'todo-list',
-          microAppProps: {
-            wrapperClassName: 'load-wrap',
-            className: 'root-slave',
-            autoSetLoading: true,
-          },
-        },
+        // {
+        //   path: '/flashcard/',
+        //   microApp: 'flashcard',
+        //   microAppProps: {
+        //     wrapperClassName: 'load-wrap',
+        //     className: 'root-slave',
+        //     autoSetLoading: true,
+        //   },
+        // },
+        // {
+        //   path: '/time-mgt/',
+        //   microApp: 'time-mgt',
+        //   microAppProps: {
+        //     wrapperClassName: 'load-wrap',
+        //     className: 'root-slave',
+        //     autoSetLoading: true,
+        //   },
+        // },
+        // {
+        //   path: '/todo-list/',
+        //   microApp: 'todo-list',
+        //   microAppProps: {
+        //     wrapperClassName: 'load-wrap',
+        //     className: 'root-slave',
+        //     autoSetLoading: true,
+        //   },
+        // },
         { redirect: '/user-center/' },
       ],
     },
@@ -91,6 +99,25 @@ export default defineConfig({
       },
     ],
   ],
+  devServer: {
+    port: 80,
+    proxy: {
+      '/user-center/api': {
+        target: 'http://user-center-go-dev',
+        changeOrigin: true,
+        pathRewrite: {
+          '/user-center/api': '',
+        },
+      },
+      '/user-center/micro': {
+        target: 'http://user-center-umi-dev',
+        changeOrigin: true,
+        pathRewrite: {
+          '/user-center/micro': '',
+        },
+      },
+    },
+  },
   metas: [
     { name: 'apple-mobile-web-app-capable', content: 'yes' },
     { name: 'mobile-web-app-capable', content: 'yes' },
