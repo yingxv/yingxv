@@ -12,6 +12,7 @@ services:
     environment:
       BRANCH: ${BRANCH:-master}
     networks:
+      - frontend
       - backend
     ports:
       - 8000:80
@@ -21,4 +22,7 @@ services:
 networks:
   backend:
     name: backend
+    driver: bridge
+  frontend:
+    name: frontend
     driver: bridge
