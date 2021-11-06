@@ -1,41 +1,5 @@
 import { defineConfig } from 'umi';
 
-function userCenterHost() {
-  switch (process.env.NODE_ENV) {
-    case 'production':
-      return 'https://micro.furan.xyz/user-center/';
-    default:
-      return 'http://localhost:8010';
-  }
-}
-
-function flashcardHost() {
-  switch (process.env.NODE_ENV) {
-    case 'production':
-      return 'https://micro.furan.xyz/flashcard/';
-    default:
-      return 'http://localhost:8020';
-  }
-}
-
-function timeMgtHost() {
-  switch (process.env.NODE_ENV) {
-    case 'production':
-      return 'https://micro.furan.xyz/time-mgt/';
-    default:
-      return 'http://localhost:8030';
-  }
-}
-
-function toDoListHost() {
-  switch (process.env.NODE_ENV) {
-    case 'production':
-      return 'https://micro.furan.xyz/to-do-list/';
-    default:
-      return 'http://localhost:8040';
-  }
-}
-
 export default defineConfig({
   title: '盈虚',
   nodeModulesTransform: {
@@ -51,24 +15,23 @@ export default defineConfig({
   dva: false,
   qiankun: {
     master: {
-      sandbox: false,
       // 注册子应用信息
       apps: [
         {
           name: 'user-center', // 唯一 id
-          entry: userCenterHost(), // html entry
+          entry: 'user-center/micro', // html entry
         },
         {
           name: 'flashcard', // 唯一 id
-          entry: flashcardHost(), // html entry
+          entry: 'flashcard/micro', // html entry
         },
         {
           name: 'time-mgt', // 唯一 id
-          entry: timeMgtHost(), // html entry
+          entry: 'time-mgt/micro', // html entry
         },
         {
-          name: 'to-do-list', // 唯一 id
-          entry: toDoListHost(), // html entry
+          name: 'todo-list', // 唯一 id
+          entry: 'todo-list/micro', // html entry
         },
       ],
     },
@@ -107,8 +70,8 @@ export default defineConfig({
           },
         },
         {
-          path: '/to-do-list/',
-          microApp: 'to-do-list',
+          path: '/todo-list/',
+          microApp: 'todo-list',
           microAppProps: {
             wrapperClassName: 'load-wrap',
             className: 'root-slave',
