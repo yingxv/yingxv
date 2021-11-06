@@ -27,7 +27,7 @@ export default defineConfig({
       apps: [
         {
           name: 'user-center', // 唯一 id
-          entry: 'http://localhost:8001', // html entry
+          entry: '/micro/user-center', // html entry
         },
         // {
         //   name: 'flashcard', // 唯一 id
@@ -102,18 +102,18 @@ export default defineConfig({
   devServer: {
     port: 80,
     proxy: {
-      '/user-center/api': {
+      '/api/user-center': {
         target: 'http://user-center-go-dev',
         changeOrigin: true,
         pathRewrite: {
-          '/user-center/api': '',
+          '/api/user-center': '',
         },
       },
-      '/user-center/micro': {
+      '/micro/user-center': {
         target: 'http://user-center-umi-dev',
         changeOrigin: true,
         pathRewrite: {
-          '/user-center/micro': '',
+          '/micro/user-center': '',
         },
       },
     },
