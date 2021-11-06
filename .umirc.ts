@@ -48,6 +48,7 @@ export default defineConfig({
       href: '/manifest.webmanifest',
     },
   ],
+  dva: false,
   qiankun: {
     master: {
       sandbox: false,
