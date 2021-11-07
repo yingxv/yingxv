@@ -29,17 +29,17 @@ export default defineConfig({
           name: 'user-center', // 唯一 id
           entry: '/micro/user-center', // html entry
         },
-        // {
-        //   name: 'flashcard', // 唯一 id
-        //   entry: 'flashcard/micro', // html entry
-        // },
+        {
+          name: 'flashcard', // 唯一 id
+          entry: '/micro/flashcard', // html entry
+        },
         // {
         //   name: 'time-mgt', // 唯一 id
-        //   entry: 'time-mgt/micro', // html entry
+        //   entry: '/micro/time-mgt', // html entry
         // },
         // {
         //   name: 'todo-list', // 唯一 id
-        //   entry: 'todo-list/micro', // html entry
+        //   entry: '/micro/todo-list', // html entry
         // },
       ],
     },
@@ -59,15 +59,15 @@ export default defineConfig({
             autoSetLoading: true,
           },
         },
-        // {
-        //   path: '/flashcard/',
-        //   microApp: 'flashcard',
-        //   microAppProps: {
-        //     wrapperClassName: 'load-wrap',
-        //     className: 'root-slave',
-        //     autoSetLoading: true,
-        //   },
-        // },
+        {
+          path: '/flashcard/',
+          microApp: 'flashcard',
+          microAppProps: {
+            wrapperClassName: 'load-wrap',
+            className: 'root-slave',
+            autoSetLoading: true,
+          },
+        },
         // {
         //   path: '/time-mgt/',
         //   microApp: 'time-mgt',
@@ -114,6 +114,20 @@ export default defineConfig({
         changeOrigin: true,
         pathRewrite: {
           '/micro/user-center': '',
+        },
+        '/api/flashcard': {
+          target: 'http://flashcard-egg-dev',
+          changeOrigin: true,
+          pathRewrite: {
+            '/api/flashcard': '',
+          },
+        },
+        '/micro/flashcard': {
+          target: 'http://flashcard-umi-dev',
+          changeOrigin: true,
+          pathRewrite: {
+            '/micro/flashcard': '',
+          },
         },
       },
     },
