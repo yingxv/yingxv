@@ -6,7 +6,7 @@ services:
     build:
       context: ../
       dockerfile: ./docker/Dockerfile
-    image: yingxv
+    image: ngekaworu/yingxv
     container_name: yingxv
     networks:
       - frontend
