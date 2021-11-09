@@ -1,15 +1,11 @@
 import React, { useState, PropsWithChildren } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { useLocation, useHistory } from 'react-router';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import { Menu, ConfigProvider, Drawer } from 'antd';
 import { SelectInfo } from 'rc-menu/lib/interface';
 
-import {
-  UserOutlined,
-  ClockCircleOutlined,
-  ReadOutlined,
-} from '@ant-design/icons';
+import { UserOutlined, ClockCircleOutlined, ReadOutlined } from '@ant-design/icons';
 
 import styled from 'styled-components';
 
@@ -63,11 +59,7 @@ export default (props: PropsWithChildren<any>) => {
           closable={false}
           bodyStyle={{ padding: 0 }}
         >
-          <Menu
-            mode="inline"
-            onSelect={onMenuChange}
-            defaultSelectedKeys={defaultSelectedKeys}
-          >
+          <Menu mode="inline" onSelect={onMenuChange} defaultSelectedKeys={defaultSelectedKeys}>
             <Menu.Item key="user-center" icon={<UserOutlined />}>
               用户中心
             </Menu.Item>
@@ -77,7 +69,7 @@ export default (props: PropsWithChildren<any>) => {
             <Menu.Item key="flashcard" icon={<ReadOutlined />}>
               单词卡
             </Menu.Item>
-            <Menu.Item key="to-do-list" icon={<ReadOutlined />}>
+            <Menu.Item key="todo-list" icon={<ReadOutlined />}>
               待办清单
             </Menu.Item>
           </Menu>
