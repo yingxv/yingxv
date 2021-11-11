@@ -4,6 +4,7 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  # 开启 
   workflow_dispatch:
 
 jobs:
@@ -19,7 +20,5 @@ jobs:
         password: ${{ secrets.DEPLOY_PWD }}
         port: ${{ secrets.DEPLOY_PORT }}
         script: | 
-          whoami
-          ls -al
-
-
+          cd yingxv/docker
+          sh boot.sh
