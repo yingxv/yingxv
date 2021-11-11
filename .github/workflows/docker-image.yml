@@ -11,9 +11,10 @@ jobs:
       with:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ${{ secrets.DEPLOYER }}
-        password: ${{ secrets.DEPOLY_PWD }}
+        password: ${{ secrets.DEPLOY_PWD }}
         port: ${{ secrets.DEPLOY_PORT }}
         script: | 
-        whoami
-        ls -al
+          whoami
+          ls -al
+
 
