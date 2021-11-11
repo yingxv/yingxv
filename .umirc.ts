@@ -27,23 +27,23 @@ export default defineConfig({
       apps: [
         {
           name: 'user-center', // 唯一 id
-          entry: '/micro/user-center', // html entry
+          entry: '/micro/user-center/', // html entry
         },
         {
           name: 'flashcard', // 唯一 id
-          entry: '/micro/flashcard', // html entry
+          entry: '/micro/flashcard/', // html entry
         },
         {
           name: 'time-mgt', // 唯一 id
-          entry: '/micro/time-mgt', // html entry
+          entry: '/micro/time-mgt/', // html entry
         },
         {
           name: 'todo-list', // 唯一 id
-          entry: '/micro/todo-list', // html entry
+          entry: '/micro/todo-list/', // html entry
         },
         {
           name: 'stock', // 唯一 id
-          entry: '/micro/stock', // html entry
+          entry: '/micro/stock/', // html entry
         },
       ],
     },

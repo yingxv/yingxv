@@ -1,17 +1,22 @@
 FROM node:lts-alpine as builder
 
-RUN mkdir -p /home/node/app
+RUN mkdir -p /home/node/app && \
+    chown node:node /home/node/app
+
+USER node
 
 WORKDIR /home/node/app
 
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY --chown=node:node package.json package-lock.json yarn.lock ./
+RUN yarn --frozen-lockfile --registry=http://registry.npmmirror.com
 
-COPY . .
+COPY --chown=node:node . .
 
-RUN npm run build
+RUN yarn build
 
 FROM nginx:stable-alpine
+
+USER nginx
 
 EXPOSE 80
 
