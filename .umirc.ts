@@ -23,6 +23,7 @@ export default defineConfig({
   sass: false,
   qiankun: {
     master: {
+      sandbox: false,
       // 注册子应用信息
       apps: [
         {
