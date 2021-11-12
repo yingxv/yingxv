@@ -16,9 +16,8 @@ RUN yarn build
 
 FROM nginx:stable-alpine
 
-USER nginx
 
 EXPOSE 80
 
-COPY --chown=nginx:nginx --from=builder /home/node/app/dist /usr/share/nginx/html
-COPY --chown=nginx:nginx ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /home/node/app/dist /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
