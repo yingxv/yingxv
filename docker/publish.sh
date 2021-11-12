@@ -3,5 +3,5 @@ set -e
 
 tag=ngekaworu/yingxv
 
-docker -f ./Dockerfile -t ${tag} build;
+docker build --file ./Dockerfile --tag ${tag} .;
 docker push ${tag};
