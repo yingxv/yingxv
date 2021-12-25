@@ -11,4 +11,5 @@ export default interface Perm {
   pID?: string; // 父级id
   url: string; // url
   icon: string; // icon
+  order?: number; // 序号
 }

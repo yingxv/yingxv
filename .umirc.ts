@@ -30,47 +30,35 @@ export default defineConfig({
       component: '@/layouts/',
       routes: [
         { path: '/', redirect: '/user-center/' },
-        {
-          path: '/user-center/',
-          microApp: 'user-center',
-          microAppProps: { className: 'root-slave' },
-        },
-        {
-          path: '/flashcard/',
-          microApp: 'flashcard',
-          // microAppProps: {
-          //   wrapperClassName: 'load-wrap',
-          //   className: 'root-slave',
-          //   autoSetLoading: true,
-          // },
-        },
-        {
-          path: '/time-mgt/',
-          microApp: 'time-mgt',
-          // microAppProps: {
-          //   wrapperClassName: 'load-wrap',
-          //   className: 'root-slave',
-          //   autoSetLoading: true,
-          // },
-        },
-        {
-          path: '/todo-list/',
-          microApp: 'todo-list',
-          // microAppProps: {
-          //   wrapperClassName: 'load-wrap',
-          //   className: 'root-slave',
-          //   autoSetLoading: true,
-          // },
-        },
-        {
-          path: '/stock/',
-          microApp: 'stock',
-          // microAppProps: {
-          //   wrapperClassName: 'load-wrap',
-          //   className: 'root-slave',
-          //   autoSetLoading: true,
-          // },
-        },
+        ...[
+          {
+            path: '/user-center/',
+            microApp: 'user-center',
+          },
+          {
+            path: '/flashcard/',
+            microApp: 'flashcard',
+          },
+          {
+            path: '/time-mgt/',
+            microApp: 'time-mgt',
+          },
+          {
+            path: '/todo-list/',
+            microApp: 'todo-list',
+          },
+          {
+            path: '/stock/',
+            microApp: 'stock',
+          },
+        ].map((r) => ({
+          ...r,
+          microAppProps: {
+            className: 'root-slave',
+            wrapperClassName: 'load-wrap',
+            autoSetLoading: true,
+          },
+        })),
         { redirect: '/user-center/' },
       ],
     },
