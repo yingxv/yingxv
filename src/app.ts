@@ -1,3 +1,5 @@
+import { restful } from './js-sdk/utils/http';
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('/sw.js');
@@ -29,17 +31,37 @@ if (window.navigator.userAgent.toLowerCase().includes('chrome')) {
   });
 }
 
-export const qiankun = fetch('/config').then(({ apps }) => ({
-  // 注册子应用信息
-  apps,
-  // 完整生命周期钩子请看 https://qiankun.umijs.org/zh/api/#registermicroapps-apps-lifecycles
-  lifeCycles: {
-    afterMount: (props) => {
-      console.log(props);
-    },
-  },
-  // 支持更多的其他配置，详细看这里 https://qiankun.umijs.org/zh/api/#start-opts
-}));
+interface App {
+  name: string; //	子应用唯一 id
+  entry: string | { script: string[]; styles: [] }; //	子应用 html 地址
+  credentials: boolean; //	拉取 entry 时是否需要携带cookie，详见
+  props: object; //	主应用传递给子应用的数据
+}
+
+export const qiankun = restful
+  .get<{ apps: App[] }, { apps: App[] }>('user-center/menu')
+  .then((res, ...args) => {
+    console.log(res, args);
+    return {
+      // 注册子应用信息
+      apps: [
+        {
+          name: 'user-center',
+          entry:
+            process.env.NODE_ENV === 'development'
+              ? 'http://localhost:1024'
+              : 'https://micro.furan.xyz/user-center',
+        },
+      ],
+      // 完整生命周期钩子请看 https://qiankun.umijs.org/zh/api/#registermicroapps-apps-lifecycles
+      lifeCycles: {},
+      // 支持更多的其他配置，详细看这里 https://qiankun.umijs.org/zh/api/#start-opts
+    };
+  })
+  .catch((e) => {
+    console.log(e);
+  })
+  .finally((...args) => console.log('finally', ...args));
 
 /**
  * The BeforeInstallPromptEvent is fired at the Window.onbeforeinstallprompt handler
