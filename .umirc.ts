@@ -33,11 +33,7 @@ export default defineConfig({
         {
           path: '/user-center/',
           microApp: 'user-center',
-          // microAppProps: {
-          //   wrapperClassName: 'load-wrap',
-          //   className: 'root-slave',
-          //   autoSetLoading: true,
-          // },
+          microAppProps: { className: 'root-slave' },
         },
         {
           path: '/flashcard/',
