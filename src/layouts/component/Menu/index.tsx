@@ -1,16 +1,14 @@
 import { Menu, Drawer, Avatar, Typography } from 'antd';
 import * as icons from '@ant-design/icons';
 import type { DrawerProps } from 'antd';
-import type { MenuProps } from 'antd';
 import { useHistory, Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { list } from './service';
 import Perm from '@/model/Perm';
-import { ReactElement, ReactNode, useState, createElement } from 'react';
+import { useState, createElement } from 'react';
 import styles from './index.less';
 import prem2Tree from './util/perm2Tree';
 
-const { Title } = Typography;
 const { Item, SubMenu } = Menu;
 export default () => {
   const [drawer, setDrawer] = useState<DrawerProps>({
@@ -28,6 +26,10 @@ export default () => {
     refetchOnWindowFocus: false,
   });
 
+  const trigger = () => {
+    setDrawer((pre) => ({ ...pre, visible: !pre.visible }));
+  };
+
   const renderMenu = (subMen = prem2Tree(menu?.data?.data?.filter((m) => !m.isHide))) =>
     subMen.map(({ children, url, name, icon }) =>
       children?.length ? (
@@ -36,14 +38,12 @@ export default () => {
         </SubMenu>
       ) : (
         <Item key={url} title={name} icon={icon && createElement((icons as any)[icon])}>
-          <Link to={url}>{name}</Link>
+          <Link to={url} onClick={trigger}>
+            {name}
+          </Link>
         </Item>
       ),
     );
-
-  const trigger = () => {
-    setDrawer((pre) => ({ ...pre, visible: !pre.visible }));
-  };
 
   return (
     <>
