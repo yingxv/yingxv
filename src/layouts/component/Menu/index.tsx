@@ -30,7 +30,7 @@ export default () => {
     setDrawer((pre) => ({ ...pre, visible: !pre.visible }));
   };
 
-  const renderMenu = (subMen = prem2Tree(menu?.data?.data?.filter((m) => !m.isHide))) =>
+  const renderMenu = (subMen = prem2Tree(menu?.data?.data?.filter((m) => !m.isHide && m.isMenu))) =>
     subMen.map(({ children, url, name, icon }) =>
       children?.length ? (
         <SubMenu icon={icon && createElement((icons as any)[icon])} title={name} key={url}>

@@ -73,14 +73,20 @@ export default defineConfig({
     ],
   ],
   devServer: {
-    port: 80,
+    port: 8010,
     proxy: {
       '/api/user-center': {
-        // target: 'http://user-center-go-dev',
-        target: 'http://localhost:8088',
+        target: 'http://localhost:8020',
         changeOrigin: true,
         pathRewrite: {
           '/api/user-center': '',
+        },
+      },
+      '/api/flashcard': {
+        target: 'http://localhost:8030',
+        changeOrigin: true,
+        pathRewrite: {
+          '/api/flashcard': '',
         },
       },
     },
