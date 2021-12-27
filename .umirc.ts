@@ -64,14 +64,6 @@ export default defineConfig({
     },
   ],
   hash: true,
-  extraBabelPlugins: [
-    [
-      'babel-plugin-styled-components',
-      {
-        namespace: 'yingxv',
-      },
-    ],
-  ],
   devServer: {
     port: 8010,
     proxy: {
@@ -87,6 +79,13 @@ export default defineConfig({
         changeOrigin: true,
         pathRewrite: {
           '/api/flashcard': '',
+        },
+      },
+      '/api/todo-list': {
+        target: 'http://localhost:8040',
+        changeOrigin: true,
+        pathRewrite: {
+          '/api/todo-list': '',
         },
       },
     },
