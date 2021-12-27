@@ -88,6 +88,20 @@ export default defineConfig({
           '/api/todo-list': '',
         },
       },
+      '/api/time-mgt': {
+        target: 'http://localhost:8050',
+        changeOrigin: true,
+        pathRewrite: {
+          '/api/time-mgt': '',
+        },
+      },
+      '/api/stock': {
+        target: 'http://localhost:8060',
+        changeOrigin: true,
+        pathRewrite: {
+          '/api/stock': '',
+        },
+      },
     },
   },
   metas: [
