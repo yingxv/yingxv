@@ -17,6 +17,7 @@ export default () => {
     bodyStyle: { padding: 0 },
     onClose: () => setDrawer((pre) => ({ ...pre, visible: false })),
     placement: 'left',
+    width: 256,
   });
 
   const history = useHistory(),
