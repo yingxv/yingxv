@@ -3,9 +3,9 @@ import base from './src/js-sdk/configs/.umirc.default';
 
 export default defineConfig({
   ...base,
-  qiankun: {
-    master: {},
-  },
+  qiankun: void 0,
+  externals: {},
+  scripts: [],
   title: '盈虚',
   favicon: '/favicon.ico',
   links: [
@@ -14,7 +14,6 @@ export default defineConfig({
       href: '/manifest.webmanifest',
     },
   ],
-
   routes: [
     {
       path: '/',
