@@ -3,9 +3,7 @@ import base from './src/js-sdk/configs/.umirc.default';
 
 export default defineConfig({
   ...base,
-  qiankun: void 0,
-  externals: {},
-  scripts: [],
+  qiankun: { master: {} },
   title: '盈虚',
   favicon: '/favicon.ico',
   links: [
