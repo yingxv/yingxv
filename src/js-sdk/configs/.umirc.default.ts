@@ -61,7 +61,7 @@ export default defineConfig({
             lodash: {
               name: 'lodash',
               chunks: 'all',
-              test: /\/node_modules\/lodash\//,
+              test: /[\\/]node_modules[\\/]lodash[\\/]/,
               priority: 12,
             },
             vendors: {
