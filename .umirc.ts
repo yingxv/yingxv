@@ -1,10 +1,12 @@
 import { defineConfig } from 'umi';
+import base from './src/js-sdk/configs/.umirc.default';
 
 export default defineConfig({
-  title: '盈虚',
-  nodeModulesTransform: {
-    type: 'none',
+  ...base,
+  qiankun: {
+    master: {},
   },
+  title: '盈虚',
   favicon: '/favicon.ico',
   links: [
     {
@@ -12,18 +14,7 @@ export default defineConfig({
       href: '/manifest.webmanifest',
     },
   ],
-  helmet: false,
-  dva: false,
-  model: false,
-  initialState: false,
-  layout: false,
-  locale: false,
-  preact: false,
-  request: false,
-  sass: false,
-  qiankun: {
-    master: {},
-  },
+
   routes: [
     {
       path: '/',
@@ -63,7 +54,6 @@ export default defineConfig({
       ],
     },
   ],
-  hash: true,
   devServer: {
     port: 8010,
     proxy: {
