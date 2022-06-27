@@ -1,5 +1,6 @@
 {
   "name": "yingxv",
+  "author": "furan",
   "private": true,
   "scripts": {
     "start": "umi dev",
